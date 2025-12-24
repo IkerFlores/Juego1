@@ -15,32 +15,32 @@ def jugar():
     puntuacionCompu = 0
     print("Bienvenido al juego de piedra papel o tijera")
     print("El mejor de 3 ganará la partida, escribe salir si no deseas jugar")
-    while puntuacionJugador < 2 and puntuacionCompu < 2:# mediante un while vamos a 
-        print(f"\nMarcador: Jugador {puntuacionJugador} - {puntuacionCompu} Computadora")
-        opcionJugadoor = input ("Elige entre piedra, papel o tijera: ").lower()
+    while puntuacionJugador < 2 and puntuacionCompu < 2:# mediante un while se repite si no llegan a dos victorias
+        print(f"\nMarcador: Jugador {puntuacionJugador} - {puntuacionCompu} Computadora")#mostramos el marcador en cada ronda
+        opcionJugadoor = input ("Elige entre piedra, papel o tijera: ").lower()#pedimos eleccion
 
-        if opcionJugadoor == 'salir':
+        if opcionJugadoor == 'salir':#opcion salir
             print (f"\nTe has rendido. Resultado: Jugador {puntuacionJugador} - {puntuacionCompu} Computadora.")
-            return
-        if opcionJugadoor not in opciones:
+            return# en esta parte se termina la funcion jugar
+        if opcionJugadoor not in opciones:#verficacion de la opcion
             print("Error! Ingresa nuevamente una opcion.")
-            continue
-        opcionComputadora = random.choice(opciones)
-        print(f"La Computadora eligió: {opcionComputadora}")
+            continue #vuelve al while
+        opcionComputadora = random.choice(opciones)#la opcion de la computadora
+        print(f"La Computadora eligió: {opcionComputadora}")#se lee
         resultado = elegirGanador ( opcionJugadoor, opcionComputadora)
         if resultado == "El jugador ha ganado":
-            puntuacionJugador += 1
+            puntuacionJugador += 1#se suma un punto al que gano
             print("Felicidades has ganado esta ronda")
         elif resultado == "La Computadora ha ganado":
             puntuacionCompu +=1
             print("Has perdido esta ronda")
         else:
-            print("Hay un empate")
+            print("Hay un empate")#aqui no se suman puntos
 
     print("\n............................")
-    if puntuacionJugador == 2:
+    if puntuacionJugador == 2:#se ve ganador de las rondas al mejor de 3
         print(f"Ganaste la partida {puntuacionJugador} a {puntuacionCompu}") 
     else: 
         print(f"La computadora ganó {puntuacionCompu} a {puntuacionJugador}")
     print("............................")   
-jugar()
+jugar() # se llama a la funcion para ejecutar
